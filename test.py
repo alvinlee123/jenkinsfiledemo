@@ -9,7 +9,7 @@ class MyTest(unittest.TestCase):
 	def test_numbers_3_4(self):
 		self.assertEqual(multiply(3,4),12)
 	def test_numbers_a_4(self):
-		self.assertEqual(multiply(a,4),'aaa')
+		self.assertEqual(multiply('a',4),'aaaa')
 		
 if __name__ == '__main__':
 	unittest.main()
