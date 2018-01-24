@@ -1,0 +1,27 @@
+node {
+   stage('Preparation') { 
+      // Get some code from a GitHub repository
+      //git 'https://github.com/alvinlee123/jenkinsfiledemo.git'
+      sh """
+      virtualenv env
+      . env/bin/activate
+      pip --proxy https://scappproxy1.businesswire.com:3128 install -r requirements/preinstall.txt
+       """
+       
+   }
+   stage('Build') {
+       sh """
+	   . env/bin/activate
+	   python multiply.py
+	   """
+      }
+   stage('unittest') {
+       sh """
+	   . env/bin/activate
+	   python test.py
+	   """
+   }
+    stage ('Cleanup'){ 
+            //deleteDir()
+    }
+}
